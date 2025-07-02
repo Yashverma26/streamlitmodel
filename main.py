@@ -21,7 +21,16 @@ options = st.sidebar.radio('Select options below to know more:', ['Exploratory D
 
 
 df = pd.read_csv('insurance.csv')
+
 @st.cache_data
+def get_stats():
+    # Perform your computation or data gathering here
+    return "some data"
+
+def stats():
+    data = get_stats()
+    st.download_button("Download", data=data)  # ✅ This is valid
+ 
 def stats():
     st.header(':blue[Exploratory Data Anaylsis]')
     st.dataframe(df)
